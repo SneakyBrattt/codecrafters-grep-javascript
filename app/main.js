@@ -8,6 +8,14 @@ function matchPattern(inputLine, pattern) {
   } else if (pattern[0] === '[' && pattern[pattern.length - 1] === ']') {
     console.log(pattern.slice(1, (pattern.length - 1)))
     return pattern.slice(1, (pattern.length - 1)).includes(inputLine);
+  }else if (pattern.startsWith("[^") && pattern.endsWith("]")) {
+
+    let grpPatt = pattern.substring(2, pattern.length - 1);
+
+    let regex = new RegExp("[^" + grpPatt + "]");
+
+    return regex.test(inputLine);
+
   }
   else {
     throw new Error(`Unhandled pattern ${pattern}`);
