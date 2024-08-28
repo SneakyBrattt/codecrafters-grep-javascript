@@ -1,17 +1,11 @@
 function matchPattern(inputLine, pattern) {
   let regex = pattern.replace('\\d', '[0-9]').replace('\\w', '[0-9a-zA-Z]');
-  if(pattern[0]==='^'){
-    pattern=pattern.slice(1,pattern.length);
-  }
-  else if(pattern[pattern.length-1]==='$'){
-    pattern=pattern.slice(0,pattern.length-1);
-  }else if (pattern.includes('+')|| pattern.includes('?')|| pattern.includes('.')){
+  if (pattern.length === 1) {
+    return inputLine.includes(pattern);
+  } else if (pattern.includes('+') || pattern.includes('?') || pattern.includes('|') || pattern.includes('.') || (pattern.startsWith('[') && pattern.endsWith(']')) || pattern.startsWith('\\d') || pattern.startsWith('^') || pattern.endsWith('$')) {
     const regExp = new RegExp(pattern);
     console.log({result: regExp.test(inputLine)})
     return regExp.test(inputLine);
-  }
-  if (pattern.length === 1) {
-    return inputLine.includes(pattern);
   }
   else {
     return new RegExp(regex).test(inputLine);
