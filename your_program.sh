@@ -1,5 +1,5 @@
 #!/bin/sh
-#
+
 # Use this script to run your program LOCALLY.
 #
 # Note: Changing this script WILL NOT affect how CodeCrafters runs your program.
@@ -12,4 +12,4 @@ set -e # Exit early if any commands fail
 #
 # - Edit this to change how your program runs locally
 # - Edit .codecrafters/run.sh to change how your program runs remotely
-exec node app/main.js "$@"
+exec node  app/main.js "$@"
