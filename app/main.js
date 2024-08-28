@@ -3,6 +3,9 @@ function matchPattern(inputLine, pattern) {
   if(pattern[0]==='^'){
     pattern=pattern.slice(1,pattern.length);
   }
+  if(pattern[pattern.length-1]==='$'){
+    pattern=pattern.slice(0,pattern.length-1);
+  }
   if (pattern.length === 1) {
     return inputLine.includes(pattern);
   }
