@@ -10,9 +10,10 @@ function matchPattern(inputLine, pattern) {
     return pattern.slice(1, (pattern.length - 1)).includes(inputLine);
   }else if (pattern.startsWith("[^") && pattern.endsWith("]")) {
 
-    let grpPatt = pattern.substring(2, pattern.length - 1);
 
-    let regex = new RegExp("[^" + grpPatt + "]");
+    let groupPattern = pattern.substring(2, pattern.length - 1);
+
+    let regex = new RegExp("[^" + groupPattern + "]");
 
     return regex.test(inputLine);
 
