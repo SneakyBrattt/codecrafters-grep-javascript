@@ -5,7 +5,7 @@ function matchPattern(inputLine, pattern) {
   }
   else if(pattern[pattern.length-1]==='$'){
     pattern=pattern.slice(0,pattern.length-1);
-  }else if (pattern.includes('+')|| pattern.includes('?')){
+  }else if (pattern.includes('+')|| pattern.includes('?')|| pattern.includes('.')){
     const regExp = new RegExp(pattern);
     console.log({result: regExp.test(inputLine)})
     return regExp.test(inputLine);
