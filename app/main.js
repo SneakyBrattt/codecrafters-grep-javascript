@@ -3,8 +3,12 @@ function matchPattern(inputLine, pattern) {
   if(pattern[0]==='^'){
     pattern=pattern.slice(1,pattern.length);
   }
-  if(pattern[pattern.length-1]==='$'){
+  else if(pattern[pattern.length-1]==='$'){
     pattern=pattern.slice(0,pattern.length-1);
+  }else if (pattern.includes('+')){
+    const regExp = new RegExp(pattern);
+    console.log({result: regExp.test(inputLine)})
+    return regExp.test(inputLine);
   }
   if (pattern.length === 1) {
     return inputLine.includes(pattern);
